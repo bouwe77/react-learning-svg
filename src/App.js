@@ -3,16 +3,14 @@ const shapes = {
   circle: "100 0",
   triangle: "200 0",
   diamond: "0 90",
-  triangle2: "100 90"
+  angledtriangle: "100 90",
+  roundedrect: "200 90"
 };
 
 export default function App() {
   return (
     <>
-      {/* <Shape shape={shapes.circle} />
-      <Shape shape={shapes.triangle} />
-      <Shape shape={shapes.rect} /> */}
-      <Shape shape={shapes.triangle2} />
+      <Shape shape={shapes.roundedrect} />
       <Shape />
     </>
   );
@@ -42,6 +40,8 @@ function Shape({ shape }) {
       <polygon points="0,125 35,90 70,125 35,160" />
 
       <polygon points="100,160 100,90 170,160" />
+
+      <rect x="200" y="90" width="70" height="70" rx="20" ry="20" />
     </svg>
   );
 }
