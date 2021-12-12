@@ -1,3 +1,9 @@
+// ============================================
+// De volgende stap:
+// Een willekeurige SVG afbeelding,
+// en dan ook met viewbox in stukjes hakken
+// ============================================
+
 const shapes = {
   rect: "0 0",
   circle: "100 0",
