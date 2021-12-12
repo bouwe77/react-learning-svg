@@ -10,19 +10,30 @@ const shapes = {
 export default function App() {
   return (
     <>
-      <Shape shape={shapes.roundedrect} />
-      <Shape />
+      <Shapes selected={shapes.rect} />
+      <Shapes selected={shapes.circle} />
+      <Shapes selected={shapes.triangle} />
+      <Shapes selected={shapes.diamond} />
+      <Shapes selected={shapes.angledtriangle} />
+      <Shapes selected={shapes.roundedrect} />
+      <Shapes />
     </>
   );
 }
 
-function Shape({ shape }) {
-  let viewportDimensions = { width: 70, height: 70 };
-  if (!shape) {
-    viewportDimensions = { width: 270, height: 180 };
+function Shapes({ selected }) {
+  let viewportDimensions = { width: 90, height: 90 };
+  if (!selected) {
+    viewportDimensions = { width: 290, height: 180 };
   }
 
-  const viewboxCoordinates = shape;
+  const viewboxCoordinates = selected ?? "0 0";
+
+  const appearance = {
+    stroke: "blue",
+    strokeWidth: "4",
+    fill: "transparent"
+  };
 
   return (
     <svg
@@ -31,17 +42,25 @@ function Shape({ shape }) {
       height={viewportDimensions.height}
       style={{ border: "3px solid red" }}
     >
-      <rect x="0" y="0" width="70" height="70" />
+      <rect x="10" y="10" width="70" height="70" {...appearance} />
 
-      <circle cx="135" cy="35" r="35" />
+      <circle cx="145" cy="45" r="35" {...appearance} />
 
-      <polygon points="235,0 270,70 200,70 235,0" />
+      <polygon points="245,10 280,80 210,80 245,10" {...appearance} />
 
-      <polygon points="0,125 35,90 70,125 35,160" />
+      <polygon points="10,135 45,100 80,135 45,170" {...appearance} />
 
-      <polygon points="100,160 100,90 170,160" />
+      <polygon points="110,170 110,100 180,170" {...appearance} />
 
-      <rect x="200" y="90" width="70" height="70" rx="20" ry="20" />
+      <rect
+        x="210"
+        y="100"
+        width="70"
+        height="70"
+        rx="20"
+        ry="20"
+        {...appearance}
+      />
     </svg>
   );
 }
